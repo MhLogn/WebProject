@@ -94,7 +94,7 @@
 
         .car-item img {
             width: 220px;
-            height: 150px;
+            height: px;
             object-fit: cover;
             border-radius: 0.5rem;
         }

@@ -13,6 +13,7 @@
             justify-content: space-between;
             background-color: white;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-radius: 1rem;
             padding: 1.5rem;
             position: relative;
             gap: 1.5rem;
@@ -90,6 +91,7 @@
         .schedule-container {
             background-color: white;
             padding: 2rem 1rem;
+            border-radius: 1rem;
             display: flex;
             justify-content: center;
             gap: 2rem;
@@ -240,7 +242,7 @@
 
         @foreach ($brands as $brand)
             <div class="brand-item">
-                <a href="{{ route('register') }}" class="flex flex-col items-center justify-center">
+                <a href="{{ route('cars.index') }}" class="flex flex-col items-center justify-center">
                     <img src="{{ asset('storage/welcomeImg/' . $brand['car']) }}" alt="Car" class="car mb-2" />
                     <img src="{{ asset('storage/logo/' . $brand['logo']) }}" alt="Logo" class="logo" />
                 </a>

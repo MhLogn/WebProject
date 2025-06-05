@@ -15,7 +15,10 @@ class CartController extends Controller
     {
         $user = Auth::user();
 
-        $existingItem = $user->cart()->where('car_id', $carId)->first();
+        $existingItem = $user->cart()
+            ->where('car_id', $carId)
+            ->where('status', 'active')
+            ->first();
 
         if ($existingItem) {
             $existingItem->increment('quantity');
@@ -23,6 +26,7 @@ class CartController extends Controller
             $user->cart()->create([
                 'car_id' => $carId,
                 'quantity' => 1,
+                'status' => 'active',
             ]);
         }
 
@@ -33,7 +37,10 @@ class CartController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $cartItems = $user->cart()->with('car')->get();
+        $cartItems = $user->cart()
+            ->where('status', 'active')
+            ->with('car')
+            ->get();
 
         return view('cart.index', compact('cartItems'));
     }
@@ -47,7 +54,7 @@ class CartController extends Controller
 
         $cartItem = Cart::findOrFail($id);
 
-        if ($cartItem->user_id !== Auth::id()) {
+        if ($cartItem->user_id !== Auth::id() || $cartItem->status !== 'active') {
             abort(403);
         }
 
@@ -62,7 +69,7 @@ class CartController extends Controller
     {
         $cartItem = Cart::findOrFail($id);
 
-        if ($cartItem->user_id !== Auth::id()) {
+        if ($cartItem->user_id !== Auth::id() || $cartItem->status !== 'active') {
             abort(403);
         }
 
@@ -75,7 +82,10 @@ class CartController extends Controller
     public function showCheckoutForm()
     {
         $user = Auth::user();
-        $cartItems = $user->cart()->with('car')->get();
+        $cartItems = $user->cart()
+            ->where('status', 'active')
+            ->with('car')
+            ->get();
 
         if ($cartItems->isEmpty()) {
             return redirect()->route('cart.index')->with('error', 'Giỏ hàng của bạn đang trống.');
@@ -90,7 +100,10 @@ class CartController extends Controller
     public function checkout(Request $request)
     {
         $user = Auth::user();
-        $cartItems = $user->cart()->with('car')->get();
+        $cartItems = $user->cart()
+            ->where('status', 'active')
+            ->with('car')
+            ->get();
 
         if ($cartItems->isEmpty()) {
             return redirect()->route('cart.index')->with('error', 'Giỏ hàng của bạn đang trống.');
@@ -118,8 +131,15 @@ class CartController extends Controller
         Mail::to('daylaaccclone39@gmail.com')->send(new CheckoutMail($data));
 
         // Xóa giỏ hàng sau khi gửi thành công
-        $user->cart()->delete();
+        // $user->cart()->delete();
+        
+        // Cập nhật trạng thái các item thành 'checked_out'
+        foreach ($cartItems as $item) {
+            $item->status = 'checked_out';
+            $item->save();
+        }
 
         return redirect()->route('cart.index')->with('success', 'Yêu cầu tư vấn đã được gửi. Chúng tôi sẽ liên hệ bạn sớm nhất!');
     }
 }
+
