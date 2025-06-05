@@ -1,5 +1,5 @@
 ## Code of Conduct
-=======
+
 # Project: Website bán ô tô
 Giới thiệu:
 
