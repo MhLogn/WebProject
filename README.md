@@ -1,11 +1,58 @@
+<<<<<<< HEAD
 ## Code of Conduct
+=======
+# Project: Website bán ô tô
+Giới thiệu:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Họ và tên Sinh viên:
+Mã Sinh viên:
+Lơp: 
 
-## Security Vulnerabilities
+# Sơ đồ khối
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## Sơ đồ chức năng
 
-## License
+Class Diagram of Objects
+
+## Sơ đồ thuật toán
+
+Create Cart (user / car /user-car)
+Activity Diagram
+
+Edit Cart
+Activity Diagram
+
+Delete Cart
+
+Activity Diagram
+
+Authentication/Authorisation
+
+
+# Một số Code chính minh họa
+
+## Model
+Cart
+## Controller
+Phương thức CRUD
+
+## View
+blade template Cart
+
+# Security Setup
+
+# Link
+## Link Demo : Youtube link
+## Public Web (deployment) link: 
+>>>>>>> 69117df79a652dbfa5a97b4bc8925ee9abbd7054
+
+# Một số hình ảnh chức năng chính
+
+
+
+
+
+
+# License & Copy Rights
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
