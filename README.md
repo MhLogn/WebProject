@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ## Code of Conduct
 =======
 # Project: Website bán ô tô
@@ -44,7 +43,6 @@ blade template Cart
 # Link
 ## Link Demo : Youtube link
 ## Public Web (deployment) link: 
->>>>>>> 69117df79a652dbfa5a97b4bc8925ee9abbd7054
 
 # Một số hình ảnh chức năng chính
 
@@ -54,5 +52,4 @@ blade template Cart
 
 
 # License & Copy Rights
-
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
