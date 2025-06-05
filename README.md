@@ -1,6 +1,10 @@
 # Project: Website bán ô tô
 Giới thiệu:
 
+Họ và tên Sinh viên:
+Mã Sinh viên:
+Lơp: 
+
 # Sơ đồ khối
 
 ## Sơ đồ chức năng
