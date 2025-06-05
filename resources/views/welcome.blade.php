@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>CarZone - Trang web bán ô tô</title>
 
     <!-- Bootstrap 5 CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" defer></script>
 
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link rel="preconnect" href="https://fonts.bunny.net" />
     <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
 
     <!-- Tailwind (nếu có Vite hoặc hot) -->
@@ -23,9 +23,26 @@
             font-family: 'Instrument Sans', sans-serif;
         }
 
+        /* Fade-in animation cho main content */
+        main {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+        main.fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mượt hơn hiệu ứng hover brand-card */
+        .brand-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
         .brand-card:hover {
             transform: scale(1.05);
-            transition: all 0.3s ease;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
         }
 
         footer a:hover {
@@ -35,7 +52,6 @@
 </head>
 
 <body class="bg-light text-dark d-flex flex-column min-vh-100">
-
     <!-- Header -->
     <header class="container py-4">
         @if (Route::has('login'))
@@ -62,9 +78,9 @@
     <!-- Main Content -->
     <main class="container text-center flex-grow-1">
         <h1 class="display-5 fw-semibold mt-4" style="color: green;">Welcome To CarZone</h1>
-        <a href="" target="_blank" class="gap-4"> 
-            <img src="{{ asset('storage/logo/logo-carzone.png') }}" alt="Car Zone Logo" class="h-20 w-auto d-block mx-auto">
-        </a> 
+        <a href="" target="_blank" class="gap-4">
+            <img src="{{ asset('storage/logo/logo-carzone.png') }}" alt="Car Zone Logo" class="h-20 w-auto d-block mx-auto" />
+        </a>
         <p class="lead text-muted mt-3">
             Chào mừng bạn đến với CarZone – nơi cung cấp các dòng xe chất lượng cao và dịch vụ đáng tin cậy
         </p>
@@ -95,9 +111,9 @@
 
             @foreach ($brands as $brand)
                 <div class="col brand-card text-center shadow-sm bg-white p-3 rounded">
-                    <a  href="{{ route('register') }}">
-                        <img src="{{ asset('storage/welcomeImg/' . $brand['car']) }}" alt="Car" class="img-fluid mb-2" style="max-height: 100px;">
-                        <img src="{{ asset('storage/logo/' . $brand['logo']) }}" alt="Logo" class="img-fluid" style="max-height: 60px;">
+                    <a href="{{ route('register') }}">
+                        <img src="{{ asset('storage/welcomeImg/' . $brand['car']) }}" alt="Car" class="img-fluid mb-2" style="max-height: 100px;" />
+                        <img src="{{ asset('storage/logo/' . $brand['logo']) }}" alt="Logo" class="img-fluid" style="max-height: 60px;" />
                     </a>
                 </div>
             @endforeach
@@ -110,19 +126,18 @@
             <div class="text-center">
                 <a href="#" class="text-decoration-none d-block mb-2">Về chúng tôi</a>
                 <a href="https://www.facebook.com/hamanhlong.2206" target="_blank" rel="noopener noreferrer" class="d-inline-block">
-                    <img src="{{ asset('storage/logo/facebook-icon.png') }}" alt="Facebook" class="img-fluid" style="height: 24px;">
+                    <img src="{{ asset('storage/logo/facebook-icon.png') }}" alt="Facebook" class="img-fluid" style="height: 24px;" />
                 </a>
             </div>
-
 
             <div class="text-center">
                 <a href="#" class="text-decoration-none d-block mb-2">Liên hệ</a>
                 <a href="https://zalo.me/0377191508" target="_blank" rel="noopener noreferrer" class="d-inline-block">
-                    <img src="{{ asset('storage/logo/zalo-icon.png') }}" alt="Zalo" class="img-fluid" style="height: 24px;">
+                    <img src="{{ asset('storage/logo/zalo-icon.png') }}" alt="Zalo" class="img-fluid" style="height: 24px;" />
                 </a>
             </div>
         </div>
-        
+
         <div class="mt-3">
             <a href="mailto:hamanhlong39@gmail.com" class="text-decoration-none d-block mb-2">
                 Gmail: hamanhlong39@gmail.com
@@ -131,5 +146,11 @@
         <p class="mt-3 mb-0">&copy; {{ date('Y') }} CarZone. Have a nice day!</p>
     </footer>
 
+    <script>
+        // Thêm class fade-in cho main sau khi DOM load để tạo hiệu ứng fade-in
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelector('main').classList.add('fade-in');
+        });
+    </script>
 </body>
 </html>

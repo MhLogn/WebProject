@@ -35,11 +35,29 @@
             text-align: center !important;
         }
 
+        /* --- Animation fadeInUp --- */
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         .car-table tbody tr {
             background-color: #f9fafb;
             transition: background-color 0.3s ease;
             border-radius: 12px;
             box-shadow: 0 1px 3px rgb(0 0 0 / 0.1);
+            
+            /* animation setup */
+            opacity: 0;
+            animation-fill-mode: forwards;
+            animation-duration: 0.5s;
+            animation-timing-function: ease;
         }
 
         .car-table tbody tr:hover {
@@ -62,8 +80,8 @@
 
         /* Ảnh xe */
         .car-table img {
-            width: 220px;
-            height: 120px;
+            width: 420px;
+            height: 220px;
             border-radius: 8px;
             object-fit: cover;
             display: block;
@@ -153,6 +171,11 @@
                 border-radius: 12px;
                 background-color: #fff;
                 padding: 12px 16px;
+
+                /* Reset animation to block layout */
+                opacity: 1 !important;
+                animation: none !important;
+                transform: none !important;
             }
 
             .car-table tbody tr td {
@@ -185,7 +208,7 @@
         }
     </style>
 
-    <div class="py-10 max-w-7xl mx-auto sm:px-6 lg:px-8">
+    <div class="py-10">
         <div class="bg-white shadow-lg rounded-lg p-6">
             @if(session('success'))
                 <div
@@ -283,4 +306,14 @@
             @endif
         </div>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const rows = document.querySelectorAll('.car-table tbody tr');
+            rows.forEach((row, index) => {
+                row.style.animationName = 'fadeInUp';
+                row.style.animationDelay = (index * 0.15) + 's'; // delay từng dòng 0.15s
+            });
+        });
+    </script>
 </x-app-layout>

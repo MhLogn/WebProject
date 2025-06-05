@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ScheduleController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
@@ -20,6 +21,7 @@ Route::get('/home', fn () => view('home.homepage'))->name('home.homepage');
 
 // Trang liên hệ (Contact)
 Route::get('/contact', fn () => view('contact.index'))->name('contact');
+Route::post('/contact/send', [ContactController::class, 'send'])->name('contact.send');
 
 // =======================
 // Quản lý Giỏ hàng (Cart)

@@ -6,6 +6,21 @@
     </x-slot>
 
     <style>
+        .fade-in {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         .contact-container {
             background-color: #f9fafb;
             padding: 2rem;
@@ -105,7 +120,6 @@
             background-color: #4338ca;
         }
 
-        /* Responsive cho mobile */
         @media (max-width: 768px) {
             .contact-container {
                 flex-direction: column;
@@ -151,20 +165,17 @@
         }
     </style>
 
-    <div class="py-12">
-        <div class="max-w-4xl mx-auto sm:px-6 lg:px-8">
+    <div class="py-12 fade-in">
+        <div class="mx-auto sm:px-6 lg:px-8">
             <div class="contact-container">
 
+                {{-- Left Column --}}
                 <div class="left-column">
                     <img src="{{ asset('storage/avt-img.png') }}" alt="Avatar" class="contact-avatar">
-
                     <h2 class="contact-name">Hà Mạnh Long</h2>
                     <p class="contact-info-text">Bạn có thể liên hệ với tôi qua địa chỉ:</p>
-
                     <div class="contact-links">
-                        <a href="mailto:hamanhlong39@gmail.com" target="_blank">
-                            📧hamanhlong39@gmail.com
-                        </a>
+                        <a href="mailto:hamanhlong39@gmail.com" target="_blank">📧hamanhlong39@gmail.com</a>
                         <a href="https://www.facebook.com/hamanhlong.2206" target="_blank">
                             <img src="{{ asset('storage/logo/facebook-icon.png') }}" alt="Facebook">
                             Facebook: Hà Mạnh Long
@@ -176,10 +187,19 @@
                     </div>
                 </div>
 
+                {{-- Right Column --}}
                 <div class="right-column">
+                    @if (session('success'))
+                        <div class="bg-green-100 text-green-700 px-4 py-2 rounded mb-4">
+                            {{ session('success') }}
+                        </div>
+                    @endif
+
                     <p class="text-gray-600 mb-4">Hoặc gửi tin nhắn cho tôi qua form:</p>
 
-                    <form class="contact-form">
+                    <form class="contact-form" method="POST" action="{{ route('contact.send') }}">
+                        @csrf
+
                         <label for="name">Họ và tên</label>
                         <input type="text" id="name" name="name" required>
 
