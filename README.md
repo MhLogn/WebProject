@@ -1,17 +1,19 @@
 ## Code of Conduct
 
-# Project: Website bán ô tô
-Giới thiệu:
+# Project: Website tư vấn/mua bán ô tô
+I, Giới thiệu:
 
-Họ và tên Sinh viên:
-Mã Sinh viên:
-Lơp: 
+- 1. Họ và tên Sinh viên: Hà Mạnh Long
+2, Mã Sinh viên: 23010390
+3, Lớp: K17_CNTT-4
+4, Môn học: Web nâng cao (TH3)
 
 # Sơ đồ khối
+## Class Diagram
+![Class Diagram](https://github.com/user-attachments/assets/68d78c1f-1974-42f1-9d09-d6d13ca5c607)
 
 ## Sơ đồ chức năng
 
-Class Diagram of Objects
 
 ## Sơ đồ thuật toán
 
