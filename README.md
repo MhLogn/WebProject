@@ -8,7 +8,8 @@
 
 # Sơ đồ khối
 ### Class Diagram
-![Class Diagram](https://github.com/user-attachments/assets/68d78c1f-1974-42f1-9d09-d6d13ca5c607)
+
+![Screenshot 2025-06-10 221758](https://github.com/user-attachments/assets/0dba67d4-02c7-4f6c-932b-96335fab4005)
 
 ## Sơ đồ chức năng
 
