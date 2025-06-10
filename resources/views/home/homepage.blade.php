@@ -7,189 +7,241 @@
 
     {{-- CSS riêng --}}
     <style>
-        .car-block {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background-color: white;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            border-radius: 1rem;
-            padding: 1.5rem;
-            position: relative;
-            gap: 1.5rem;
-        }
-        .car-block.reverse {
-            flex-direction: row-reverse;
-        }
-        .car-block img {
-            width: 60%;
-            height: auto;
-            object-fit: cover;
-            border-radius: 0.5rem;
-        }
-        .text-content {
-            width: 40%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            text-align: center;
-            gap: 1rem;
-        }
-        .text-content h1 {
-            font-size: 1rem;
-            font-weight: 600;
-            color: #111827;
-        }
-        .text-content p {
-            font-size: 0.875rem;
-            color: #4b5563;
-            line-height: 1.5;
-        }
-        .text-content a {
-            display: inline-block;
-            background-color: #1F2937;
-            color: white;
-            font-weight: 600;
-            font-size: 0.875rem;
-            padding: 0.5rem 1rem;
-            border-radius: 0.5rem;
-            text-decoration: none;
-            transition: background-color 0.3s ease;
-            margin: 0 auto;
-        }
-        .text-content a:hover {
-            background-color: #3a8b5f;
-        }
-        .slider-arrow {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(0,0,0,0.5);
-            color: white;
-            padding: 0.5rem 0.8rem;
-            font-size: 1.5rem;
-            cursor: pointer;
-            border-radius: 50%;
-            user-select: none;
-        }
-        .slider-arrow.left {
-            left: 10px;
-        }
-        .slider-arrow.right {
-            right: 10px;
-        }
-        .slider-counter {
-            position: absolute;
-            bottom: 10px;
-            right: 10px;
-            background-color: rgba(0,0,0,0.5);
-            color: white;
-            padding: 0.3rem 0.6rem;
-            font-size: 0.875rem;
-            border-radius: 0.3rem;
-        }
-        .schedule-container {
-            background-color: white;
-            padding: 2rem 1rem;
-            border-radius: 1rem;
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: 1rem;
-            flex-wrap: wrap;
-        }
-        .schedule-item {
-            background-color: #f9fafb;
-            border-radius: 0.75rem;
-            padding: 1rem;
-            text-align: center;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-            text-decoration: none;
-            color: #374151;
-        }
-        .schedule-item img {
-            width: 300px;
-            height: 230px;
-            object-fit: cover;
-            border-radius: 0.5rem;
-            margin-bottom: 0.75rem;
-        }
-        .schedule-item:hover {
-            transform: translateY(-5px);
-            background-color: #1F2937;
-            color: white;
-        }
-        .schedule-item:hover p {
-            color: white;
-        }
-        @media (max-width: 768px) {
-            .car-block {
-                flex-direction: column;
-                text-align: center;
-            }
-            .car-block.reverse {
-                flex-direction: column;
-            }
-            .car-block img {
-                width: 100%;
-                margin-bottom: 1rem;
-            }
-            .text-content {
-                width: 100%;
-            }
-            .schedule-container {
-                flex-direction: column;
-                gap: 1.5rem;
-            }
-        }
-        /* Brand Section */
-        .brand-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill,minmax(180px,1fr));
-            gap: 1.5rem;
-            padding: 0 1rem;
-        }
+.car-block {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    position: relative;
+    gap: 1.5rem;
+}
+.car-block.reverse {
+    flex-direction: row-reverse;
+}
+.car-block img {
+    width: 60%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 0.5rem;
+}
+.text-content {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    gap: 1rem;
+}
+.text-content h1 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #111827;
+}
+.text-content p {
+    font-size: 0.875rem;
+    color: #4b5563;
+    line-height: 1.5;
+}
+.text-content a {
+    display: inline-block;
+    background-color: #1F2937;
+    color: white;
+    font-weight: 600;
+    font-size: 0.875rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    margin: 0 auto;
+}
+.text-content a:hover {
+    background-color: #3a8b5f;
+}
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    padding: 0.5rem 0.8rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    border-radius: 50%;
+    user-select: none;
+}
+.slider-arrow.left {
+    left: 10px;
+}
+.slider-arrow.right {
+    right: 10px;
+}
+.slider-counter {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    padding: 0.3rem 0.6rem;
+    font-size: 0.875rem;
+    border-radius: 0.3rem;
+}
+.schedule-container {
+    background-color: white;
+    padding: 2rem 1rem;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+.schedule-item {
+    background-color: #f9fafb;
+    border-radius: 0.75rem;
+    padding: 1rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    text-decoration: none;
+    color: #374151;
+}
+.schedule-item img {
+    width: 300px;
+    height: 230px;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    margin-bottom: 0.75rem;
+}
+.schedule-item:hover {
+    transform: translateY(-5px);
+    background-color: #1F2937;
+    color: white;
+}
+.schedule-item:hover p {
+    color: white;
+}
+@media (max-width: 768px) {
+    .car-block {
+        flex-direction: column;
+        text-align: center;
+    }
+    .car-block.reverse {
+        flex-direction: column;
+    }
+    .car-block img {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+    .text-content {
+        width: 100%;
+    }
+    .schedule-container {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+}
+.brand-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(180px,1fr));
+    gap: 1.5rem;
+    padding: 0 1rem;
+}
 
-        .brand-item {
-            background: white;
-            border-radius: 1rem;
-            padding: 1rem;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-            text-align: center;
-            cursor: pointer;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        .brand-item:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-        }
-        .brand-item img.car {
-            width: 100%;
-            max-height: 120px;
-            object-fit: contain;
-            margin: 0;
-        }
-        .brand-item img.logo {
-            max-width: 80px;
-            max-height: 40px;
-            object-fit: contain;
-            margin: 0;
-        }
-        @media (max-width: 768px) {
-            .brand-item img.car {
-                max-height: 100px;
-            }
-            .brand-item img.logo {
-                max-width: 60px;
-                max-height: 30px;
-            }
-        }
+.brand-item {
+    background: white;
+    border-radius: 1rem;
+    padding: 1rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+.brand-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+.brand-item img.car {
+    width: 100%;
+    max-height: 120px;
+    object-fit: contain;
+    margin: 0;
+}
+.brand-item img.logo {
+    max-width: 80px;
+    max-height: 40px;
+    object-fit: contain;
+    margin: 0;
+}
+@media (max-width: 768px) {
+    .brand-item img.car {
+        max-height: 100px;
+    }
+    .brand-item img.logo {
+        max-width: 60px;
+        max-height: 30px;
+    }
+    .car-block {
+        padding: 1rem;
+        gap: 1rem;
+    }
+    .car-block img {
+        max-height: 250px;
+    }
+    .text-content {
+        padding: 0 0.5rem;
+    }
+    .text-content h1 {
+        font-size: 1.25rem;
+    }
+    .text-content p {
+        font-size: 0.95rem;
+    }
+    .text-content a {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.95rem;
+    }
+    .slider-arrow {
+        padding: 0.3rem 0.6rem;
+        font-size: 1.2rem;
+    }
+    .slider-arrow.left {
+        left: 5px;
+    }
+    .slider-arrow.right {
+        right: 5px;
+    }
+    .slider-counter {
+        bottom: 5px;
+        right: 5px;
+        padding: 0.2rem 0.4rem;
+        font-size: 0.75rem;
+    }
+    .schedule-container {
+        gap: 1rem;
+        padding: 1rem 0.5rem;
+    }
+    .schedule-item {
+        width: 90%;
+        margin: 0 auto;
+        padding: 0.8rem;
+    }
+    .schedule-item img {
+        max-height: 180px;
+    }
+    .brand-grid {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 1rem;
+        padding: 0 0.5rem;
+    }
+}
     </style>
 
     {{-- Slider Section --}}

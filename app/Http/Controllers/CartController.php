@@ -130,16 +130,15 @@ class CartController extends Controller
 
         Mail::to('daylaaccclone39@gmail.com')->send(new CheckoutMail($data));
 
-        // Xóa giỏ hàng sau khi gửi thành công
-        // $user->cart()->delete();
+        $user->cart()->delete();
         
         // Cập nhật trạng thái các item thành 'checked_out'
-        foreach ($cartItems as $item) {
-            $item->status = 'checked_out';
-            $item->save();
-        }
+        // foreach ($cartItems as $item) {
+        //     $item->status = 'checked_out';
+        //     $item->save();
+        // }
 
-        return redirect()->route('cart.index')->with('success', 'Yêu cầu tư vấn đã được gửi. Chúng tôi sẽ liên hệ bạn sớm nhất!');
+        return redirect()->route('cart.index')->with('success', 'Yêu cầu tư vấn của bạn đã được gửi. Chúng tôi sẽ liên hệ bạn sớm nhất!');
     }
 }
 

@@ -207,7 +207,6 @@
                                 <th>Cập nhật</th>
                                 <th>Giá</th>
                                 <th>Thành tiền</th>
-                                <th>Trạng thái</th>
                                 <th>Xóa</th>
                             </tr>
                         </thead>
@@ -246,15 +245,6 @@
                                     <td class="text-indigo-700 font-bold">
                                         {{ number_format($subtotal, 0, ',', '.') }} USĐ
                                     </td>
-                                    <td class="text-sm font-semibold">
-                                        @if ($item->status === 'active')
-                                            <span class="text-green-600">Đang chọn</span>
-                                        @elseif ($item->status === 'checked_out')
-                                            <span class="text-blue-600">Đã gửi</span>
-                                        @else
-                                            <span class="text-gray-500">Không rõ</span>
-                                        @endif
-                                    </td>
                                     <td>
                                         @if ($item->status === 'active')
                                             <form action="{{ route('cart.remove', $item->id) }}" method="POST" onsubmit="return confirm('Xóa xe này khỏi giỏ hàng?');">
@@ -282,15 +272,9 @@
 
             @if(!$cartItems->isEmpty())
                 <div class="mt-8 flex justify-end">
-                    @if(session('success'))
-                        <span class="btn-consult bg-gray-400 cursor-not-allowed pointer-events-none">
-                            ✅ Đã gửi yêu cầu
-                        </span>
-                    @else
                         <a href="{{ route('cart.checkout.form') }}" class="btn-consult">
                             Tư Vấn
                         </a>
-                    @endif
                 </div>
             @endif
         </div>
