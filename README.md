@@ -46,12 +46,49 @@ Authentication/Authorisation
 # Một số Code chính minh họa
 
 ## Model
-Cart
+#### User:
+
+![Screenshot 2025-06-11 225623](https://github.com/user-attachments/assets/5bd90036-3779-4618-8a8b-dffa5fe95378)
+
+#### Car:
+
+![Screenshot 2025-06-11 225540](https://github.com/user-attachments/assets/61a61c09-0ae6-4a17-b64a-af0135aee2a9)
+
+#### Cart:
+
+![image](https://github.com/user-attachments/assets/e7d04f0f-1bc0-4d58-b0ea-19fa4a66cde5)
+
+#### CartItem:
+
+![image](https://github.com/user-attachments/assets/c966511b-116d-4ed8-99d9-3b1eda90efa4)
+
 ## Controller
-Phương thức CRUD
+#### ProfileController:
+
+![image](https://github.com/user-attachments/assets/fe334819-2c33-49b3-8c58-f0544bacfd1b)
+
+#### CarController:
+
+![image](https://github.com/user-attachments/assets/3b7368cc-e131-4be0-8a40-4b20ace9bbf6)
+
+#### CartController:
+
+![image](https://github.com/user-attachments/assets/26db16f8-93fd-4a2a-a0f0-27c18ebded53)
+
+#### ContactController:
+
+![image](https://github.com/user-attachments/assets/1519b596-b06a-4b46-a414-d67d44a6d90b)
+
+#### ScheduleController:
+
+![image](https://github.com/user-attachments/assets/2f455cc3-8ccd-4dbf-8649-7926b16f87c9)
 
 ## View
 blade template Cart
+
+## Routes
+
+![image](https://github.com/user-attachments/assets/769f7edc-006b-4e7c-a57f-5982aae4c548)
 
 # Security Setup
 
