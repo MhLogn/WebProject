@@ -31,6 +31,6 @@ class ScheduleController extends Controller
 
         // Schedule::create($validated);
 
-        return redirect()->route('schedule.form')->with('success', 'Đặt lịch thành công! Chúng tôi sẽ liên hệ bạn sớm.');
+        return redirect()->route('schedule.form')->with('success', 'Đặt lịch thành công! Chúng tôi sẽ phản hồi bạn sớm.');
     }
 }

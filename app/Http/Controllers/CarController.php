@@ -48,7 +48,7 @@ class CarController extends Controller
 
         Car::create($validated);
 
-        return redirect()->route('cars.index')->with('success', 'Car created successfully!');
+        return redirect()->route('cars.index')->with('success', 'Đã thêm thành công một mẫu xe mới!');
     }
 
     public function show($id)
@@ -87,7 +87,7 @@ class CarController extends Controller
 
         $car->update($validated);
 
-        return redirect()->route('cars.index')->with('success', 'Car updated successfully!');
+        return redirect()->route('cars.index')->with('success', 'Cập nhật lại thông tin xe thành công!');
     }
 
     public function destroy($id)
@@ -101,6 +101,6 @@ class CarController extends Controller
 
         $car->delete();
 
-        return redirect()->route('cars.index')->with('success', 'Car deleted successfully!');
+        return redirect()->route('cars.index')->with('success', 'Mẫu xe đã được xóa thành công');
     }
 }

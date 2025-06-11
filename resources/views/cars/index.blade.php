@@ -10,7 +10,7 @@
         .car-table {
             width: 100%;
             border-collapse: separate;
-            border-spacing: 0 8px; /* tạo khoảng cách giữa các hàng */
+            border-spacing: 0 8px;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             box-shadow: 0 4px 12px rgb(0 0 0 / 0.05);
             border-radius: 12px;
@@ -27,15 +27,13 @@
             font-size: 0.9rem;
             letter-spacing: 0.1em;
             border: none;
-            text-align: left; /* mặc định trái */
+            text-align: left;
         }
 
-        /* Căn giữa header cột Hành động */
         .car-table thead th.text-center {
             text-align: center !important;
         }
 
-        /* --- Animation fadeInUp --- */
         @keyframes fadeInUp {
             0% {
                 opacity: 0;
@@ -52,8 +50,6 @@
             transition: background-color 0.3s ease;
             border-radius: 12px;
             box-shadow: 0 1px 3px rgb(0 0 0 / 0.1);
-            
-            /* animation setup */
             opacity: 0;
             animation-fill-mode: forwards;
             animation-duration: 0.5s;
@@ -72,13 +68,11 @@
             border: none;
         }
 
-        /* Căn giữa nội dung cột hành động */
         .car-table tbody td.text-center {
             text-align: center;
             vertical-align: middle;
         }
 
-        /* Ảnh xe */
         .car-table img {
             width: 420px;
             height: 220px;
@@ -88,7 +82,6 @@
             box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
         }
 
-        /* Nút thao tác */
         .action-buttons a,
         .action-buttons button {
             margin: 2px 4px;
@@ -103,7 +96,6 @@
             box-shadow: 0 1px 4px rgb(0 0 0 / 0.1);
         }
 
-        /* Các kiểu nút */
         .btn-view {
             background-color: #c7d2fe;
             color: #4338ca;
@@ -158,7 +150,27 @@
             color: white;
         }
 
-        /* Responsive đơn giản cho màn hình nhỏ */
+        .success-alert {
+            background-color: #a7f3d0;
+            color: #047857;
+            padding: 16px;
+            border-radius: 8px;
+            font-weight: 600;
+            box-shadow: 0 3px 8px rgb(0 0 0 / 0.1);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .success-alert svg {
+            fill: #047857;
+        }
+
+        .success-alert:hover {
+            background-color: #6ee7b7;
+            box-shadow: 0 5px 14px rgb(0 0 0 / 0.2);
+        }
+
         @media (max-width: 768px) {
             .car-table thead {
                 display: none;
@@ -171,8 +183,6 @@
                 border-radius: 12px;
                 background-color: #fff;
                 padding: 12px 16px;
-
-                /* Reset animation to block layout */
                 opacity: 1 !important;
                 animation: none !important;
                 transform: none !important;
@@ -211,9 +221,8 @@
     <div class="py-10">
         <div class="bg-white shadow-lg rounded-lg p-6">
             @if(session('success'))
-                <div
-                    class="mb-6 p-4 bg-green-100 text-green-800 rounded border border-green-300 flex items-center space-x-2">
-                    <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" stroke-width="2"
+                <div class="success-alert">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2"
                         viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M5 13l4 4L19 7"></path>
                     </svg>
@@ -312,7 +321,7 @@
             const rows = document.querySelectorAll('.car-table tbody tr');
             rows.forEach((row, index) => {
                 row.style.animationName = 'fadeInUp';
-                row.style.animationDelay = (index * 0.15) + 's'; // delay từng dòng 0.15s
+                row.style.animationDelay = (index * 0.15) + 's';
             });
         });
     </script>

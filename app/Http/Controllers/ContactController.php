@@ -26,6 +26,6 @@ class ContactController extends Controller
 
         Mail::to('daylaaccclone39@gmail.com')->send(new ContactMail($contactData));
 
-        return redirect()->back()->with('success', 'Cảm ơn bạn đã liên hệ với chúng tôi!');
+        return redirect()->back()->with('success', 'Cảm ơn bạn đã liên hệ với chúng tôi, chúng tôi sẽ phản hồi lại bạn sớm!');
     }
 }
