@@ -1,7 +1,7 @@
 # 🚗 Project: Website tư vấn/mua bán ô tô
 ## Giới thiệu:
 
-1. 👤 Họ và tên Sinh viên: Hà Mạnh Long
+1. Họ và tên Sinh viên: Hà Mạnh Long
 2. Mã Sinh viên: 23010390
 3. Lớp: K17_CNTT-4
 4. Môn học: Web nâng cao (TH3)
@@ -18,8 +18,7 @@
 #### 4. Blade Template
 #### 5. Tailwind CSS
 
-# Sơ đồ khối
-### Class Diagram
+## Sơ đồ khối
 
 ![Screenshot 2025-06-10 221758](https://github.com/user-attachments/assets/0dba67d4-02c7-4f6c-932b-96335fab4005)
 
