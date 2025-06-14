@@ -29,17 +29,8 @@
 
 ## Sơ đồ thuật toán
 
-Create Cart (user / car /user-car)
-Activity Diagram
-
-Edit Cart
-Activity Diagram
-
-Delete Cart
-
-Activity Diagram
-
-Authentication/Authorisation
+##### CRUD Car
+![image](https://github.com/user-attachments/assets/2ffa84b6-8393-4848-b1e6-624833839cd6)
 
 
 # Một số Code chính minh họa
