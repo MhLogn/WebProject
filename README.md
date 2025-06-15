@@ -57,14 +57,6 @@ blade template Cart
 
 ##### Security Setup
 
-# Link
-
-### Github Profile : https://github.com/MhLogn
-
-### Link Demo : https://www.youtube.com/@longhamanh5118
-
-### Public Web (deployment) link: 
-
 #### Một số hình ảnh chức năng chính
 
 ##### Trang xác thực người dùng:
@@ -141,6 +133,13 @@ Liên hệ
 
 ![Screenshot 2025-06-11 001910](https://github.com/user-attachments/assets/fe6cf771-f46a-4d64-8e2a-01f7084e399e)
 
+### Link
+
+#### Github Profile : https://github.com/MhLogn
+
+#### Link Demo : https://www.youtube.com/@longhamanh5118
+
+#### Public Web (deployment) link: 
 
 #### License & Copy Rights
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
