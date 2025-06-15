@@ -41,8 +41,16 @@ Trang web hỗ trợ người dùng:
 ### 📌 Sơ Đồ Chức Năng
 ![Sơ đồ chức năng](https://github.com/user-attachments/assets/8f3117d6-8729-4a63-99ad-458faf23adcc)
 
-### 📌 Sơ Đồ Thuật Toán (CRUD Xe)
-![CRUD Car](https://github.com/user-attachments/assets/2ffa84b6-8393-4848-b1e6-624833839cd6)
+### 📌 Sơ Đồ Thuật Toán
+#### CRUD Car
+![carCRUD](https://github.com/user-attachments/assets/4543f453-1423-4fa5-9354-36ddb5a72dd8)
+#### CRUD Cart
+![cartCRUD](https://github.com/user-attachments/assets/40ffa733-1212-48ec-b75a-dc0d594d563e)
+#### Contact
+![contact](https://github.com/user-attachments/assets/2abdafe4-4d44-4977-a308-2e4e80a21a40)
+
+#### Schedule
+![schedule](https://github.com/user-attachments/assets/96421d79-b637-4267-ad5a-5a8f1a964ce5)
 
 ---
 
