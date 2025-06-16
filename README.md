@@ -10,16 +10,16 @@
 
 ## 📋 Giới Thiệu Dự Án
 
-Dự án xây dựng một website chuyên về **tư vấn và mua bán ô tô**, kết nối giữa người **mua** và người **bán**, mang đến trải nghiệm giao dịch:
-- Nhanh chóng
-- Minh bạch
+Dự án xây dựng một website chuyên về **tư vấn và mua bán ô tô**, kết nối giữa người **mua** và **bán**, mang đến trải nghiệm giao dịch:
+- Nhanh chóng  
+- Minh bạch  
 - Đáng tin cậy
 
-Trang web hỗ trợ người dùng:
-- Tìm kiếm xe theo nhu cầu
-- Thêm vào giỏ hàng
-- Gửi yêu cầu tư vấn
-- Đặt lịch dịch vụ
+### ✨ Tính năng hỗ trợ:
+- Tìm kiếm xe theo nhu cầu  
+- Thêm vào giỏ hàng  
+- Gửi yêu cầu tư vấn  
+- Đặt lịch dịch vụ  
 - Liên hệ với người bán
 
 ---
@@ -46,6 +46,10 @@ Trang web hỗ trợ người dùng:
   <img src="https://github.com/user-attachments/assets/4543f453-1423-4fa5-9354-36ddb5a72dd8" width="800px">
 - **CRUD Cart**  
   <img src="https://github.com/user-attachments/assets/40ffa733-1212-48ec-b75a-dc0d594d563e" width="800px">
+- **IsAdmin**  
+  <img src="https://github.com/user-attachments/assets/4236bd4a-a5b8-4be9-935f-28e965591e55" width="800px">
+- **User ➝ SelectCar ➝ addToCart**  
+  <img src="https://github.com/user-attachments/assets/173472f7-ff66-4c3f-9bcc-2ab9c235fed1" width="800px">
 - **Contact**  
   <img src="https://github.com/user-attachments/assets/2abdafe4-4d44-4977-a308-2e4e80a21a40" width="800px">
 - **Schedule**  
@@ -80,7 +84,16 @@ Trang web hỗ trợ người dùng:
 ---
 
 ### 📄 Blade Template (View)
-- **Cart View (Giỏ hàng)**
+- **Home View**  
+  <img src="https://github.com/user-attachments/assets/3268ea3d-5827-4bb9-8980-79310df1b1dc" width="800px">
+- **Car View**  
+  <img src="https://github.com/user-attachments/assets/9a468fc5-f913-483d-8851-6f4db0abaf71" width="800px">
+- **Cart View**  
+  <img src="https://github.com/user-attachments/assets/57e81e5d-bd24-401b-97db-d82f205a9b75" width="800px">
+- **Contact View**  
+  <img src="https://github.com/user-attachments/assets/1aaca38b-cf96-48a5-817c-94e4e42d1f00" width="800px">
+- **Schedule View**  
+  <img src="https://github.com/user-attachments/assets/59a6de95-003d-497b-8e67-af497a500cd0" width="800px">
 
 ---
 
@@ -90,9 +103,16 @@ Trang web hỗ trợ người dùng:
 ---
 
 ## 🔒 Bảo Mật
-- Xác thực Laravel Breeze
-- CSRF Token bảo vệ form
-- Middleware phân quyền Admin
+
+- **CSRF & XSS Token bảo vệ form** (ví dụ: `car.index`)  
+  <img src="https://github.com/user-attachments/assets/aa50bea3-bb00-49fd-af8a-8b0cf75a026c" width="800px">
+
+- **Query Builder chống SQL Injection** (ví dụ: `CartController`)  
+  <img src="https://github.com/user-attachments/assets/019d6eb2-736b-4365-870a-6fe22cd27659" width="800px">
+
+- **Middleware phân quyền Admin**  
+  <img src="https://github.com/user-attachments/assets/3dc1325b-b453-4356-9985-6f765f93c826" width="800px">  
+  <img src="https://github.com/user-attachments/assets/29dce701-a08a-451a-9c24-29997051d361" width="800px">
 
 ---
 
@@ -147,9 +167,9 @@ Trang web hỗ trợ người dùng:
 ---
 
 ## 🔗 Liên Kết
-- 🔗 **GitHub**: [https://github.com/MhLogn](https://github.com/MhLogn)  
-- ▶️ **YouTube Demo**: [https://www.youtube.com/@longhamanh5118](https://www.youtube.com/@longhamanh5118)  
-- 🌐 **Public Website**: *(đang cập nhật)*
+- 🔗 **GitHub:** [https://github.com/MhLogn](https://github.com/MhLogn)  
+- ▶️ **YouTube Demo:** [https://www.youtube.com/@longhamanh5118](https://www.youtube.com/@longhamanh5118)  
+- 🌐 **Public Website:** *(đang cập nhật)*
 
 ---
 
