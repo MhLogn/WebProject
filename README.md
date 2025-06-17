@@ -618,7 +618,7 @@ require __DIR__.'/auth.php';
 ---
 
 ## 🔒 Bảo Mật
-- **CSRF & XSS Token bảo vệ form** (ví dụ: `car.index`)  
+- **CSRF & XSS Token bảo vệ form** (ví dụ: `car.index`)
 ```php
 
     @if(Auth::user() && Auth::user()->is_admin)
@@ -639,6 +639,7 @@ require __DIR__.'/auth.php';
     </form>
 
 ```
+
 - **Query Builder chống SQL Injection** (ví dụ: `CartController`)  
 ```php
 
@@ -665,6 +666,7 @@ require __DIR__.'/auth.php';
     }
 
 ```
+
 - **Middleware phân quyền Admin**  
 ```php
 
@@ -683,10 +685,6 @@ class IsAdmin
         return $next($request);
     }
 }
-
-```
-
-```php
 
 // Các route cần phân quyền Admin
 Route::middleware(['auth', IsAdmin::class])->group(function () {
