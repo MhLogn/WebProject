@@ -6,7 +6,6 @@
     </x-slot>
 
     <style>
-        /* --- Bảng danh sách xe --- */
         .car-table {
             width: 100%;
             border-collapse: separate;
