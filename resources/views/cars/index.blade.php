@@ -161,10 +161,6 @@
             gap: 8px;
         }
 
-        .success-alert svg {
-            fill: #047857;
-        }
-
         .success-alert:hover {
             background-color: #6ee7b7;
             box-shadow: 0 5px 14px rgb(0 0 0 / 0.2);
