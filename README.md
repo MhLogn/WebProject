@@ -1,6 +1,6 @@
-# 🚗 Dự Án Website Tư Vấn / Mua Bán Ô Tô
+<h1 align="center"><strong>🚗 Dự Án Website Tư Vấn / Mua Bán Ô Tô</strong></h1>
 
-## 👤 Thông Tin Sinh Viên
+<h2>👤 Thông Tin Sinh Viên</h2>
 - **Họ và tên:** Hà Mạnh Long  
 - **Mã sinh viên:** 23010390  
 - **Lớp:** K17_CNTT-4  
@@ -35,80 +35,603 @@ Dự án xây dựng một website chuyên về **tư vấn và mua bán ô tô*
 ## 🧠 Sơ Đồ
 
 ### 📌 Sơ Đồ Khối
-<img src="https://github.com/user-attachments/assets/0dba67d4-02c7-4f6c-932b-96335fab4005" width="600px">
+<img src="https://github.com/user-attachments/assets/0dba67d4-02c7-4f6c-932b-96335fab4005" width="700px">
 
 ### 📌 Sơ Đồ Chức Năng
-<img src="https://github.com/user-attachments/assets/8f3117d6-8729-4a63-99ad-458faf23adcc" width="600px">
+<img src="https://github.com/user-attachments/assets/8f3117d6-8729-4a63-99ad-458faf23adcc" width="700px">
 
 ### 📌 Sơ Đồ Thuật Toán
-- **CRUD Car**  
-    <img src="https://github.com/user-attachments/assets/4543f453-1423-4fa5-9354-36ddb5a72dd8" width="600px">
-- **CRUD Cart**  
-    <img src="https://github.com/user-attachments/assets/40ffa733-1212-48ec-b75a-dc0d594d563e" width="600px">
-- **IsAdmin**  
-    <img src="https://github.com/user-attachments/assets/4236bd4a-a5b8-4be9-935f-28e965591e55" width="600px">
-- **User ➝ SelectCar ➝ addToCart**  
-    <img src="https://github.com/user-attachments/assets/173472f7-ff66-4c3f-9bcc-2ab9c235fed1" width="600px">
-- **Contact**  
-    <img src="https://github.com/user-attachments/assets/2abdafe4-4d44-4977-a308-2e4e80a21a40" width="600px">
-- **Schedule**  
-    <img src="https://github.com/user-attachments/assets/96421d79-b637-4267-ad5a-5a8f1a964ce5" width="600px">
+**CRUD Car**  
+    <img src="https://github.com/user-attachments/assets/4543f453-1423-4fa5-9354-36ddb5a72dd8" width="700px">
+**CRUD Cart**  
+    <img src="https://github.com/user-attachments/assets/40ffa733-1212-48ec-b75a-dc0d594d563e" width="700px">
+**IsAdmin**  
+    <img src="https://github.com/user-attachments/assets/4236bd4a-a5b8-4be9-935f-28e965591e55" width="700px">
+**User ➝ SelectCar ➝ addToCart**  
+    <img src="https://github.com/user-attachments/assets/173472f7-ff66-4c3f-9bcc-2ab9c235fed1" width="700px">
+**Contact**  
+    <img src="https://github.com/user-attachments/assets/2abdafe4-4d44-4977-a308-2e4e80a21a40" width="700px">
+**Schedule**  
+    <img src="https://github.com/user-attachments/assets/96421d79-b637-4267-ad5a-5a8f1a964ce5" width="700px">
 
 ---
 
 ## 🧩 Code Chính Minh Họa
 
 ### 📦 Model
-- **User**  
-    <img src="https://github.com/user-attachments/assets/5bd90036-3779-4618-8a8b-dffa5fe95378" width="600px">
-- **Car**  
-    <img src="https://github.com/user-attachments/assets/61a61c09-0ae6-4a17-b64a-af0135aee2a9" width="600px">
-- **Cart**  
-    <img src="https://github.com/user-attachments/assets/e7d04f0f-1bc0-4d58-b0ea-19fa4a66cde5" width="600px">
-- **CartItem**  
-    <img src="https://github.com/user-attachments/assets/c966511b-116d-4ed8-99d9-3b1eda90efa4" width="600px">
+
+**User**
+
+```php
+class User extends Authenticatable
+{
+    /** @use HasFactory<\Database\Factories\UserFactory> */
+    use HasFactory, Notifiable;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var list<string>
+     */
+    protected $fillable = [
+        'name',
+        'email',
+        'password',
+    ];
+
+    /**
+     * The attributes that should be hidden for serialization.
+     *
+     * @var list<string>
+     */
+    protected $hidden = [
+        'password',
+        'remember_token',
+    ];
+
+    /**
+     * Get the attributes that should be cast.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
+            'email_verified_at' => 'datetime',
+            'password' => 'hashed',
+        ];
+    }
+
+    public function cart()
+    {
+    return $this->hasMany(Cart::class);
+    }
+}
+
+```
+**Car**
+
+```php
+
+class Car extends Model
+{
+    protected $fillable = [
+        'image',
+        'name',
+        'brand',
+        'year',
+        'price',
+        'note',
+    ];
+}
+
+```
+**Cart**
+
+```php
+
+class Cart extends Model
+{
+    use HasFactory;
+
+    protected $fillable = ['user_id', 'car_id', 'quantity', 'status'];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function car()
+    {
+        return $this->belongsTo(Car::class);
+    }
+}
+
+```
+**CartItem**  
+```php
+
+class CartItem extends Model
+{
+    use HasFactory;
+
+    protected $fillable = ['cart_id', 'car_id', 'quantity'];
+
+    public function cart()
+    {
+        return $this->belongsTo(Cart::class);
+    }
+
+    public function car()
+    {
+        return $this->belongsTo(Car::class);
+    }
+}
+
+```
 
 ### 🧠 Controller
-- **ProfileController**  
-    <img src="https://github.com/user-attachments/assets/fe334819-2c33-49b3-8c58-f0544bacfd1b" width="600px">
-- **CarController**  
-    <img src="https://github.com/user-attachments/assets/3b7368cc-e131-4be0-8a40-4b20ace9bbf6" width="600px">
-- **CartController**  
-    <img src="https://github.com/user-attachments/assets/26db16f8-93fd-4a2a-a0f0-27c18ebded53" width="600px">
-- **ContactController**  
-    <img src="https://github.com/user-attachments/assets/1519b596-b06a-4b46-a414-d67d44a6d90b" width="600px">
-- **ScheduleController**  
-    <img src="https://github.com/user-attachments/assets/2f455cc3-8ccd-4dbf-8649-7926b16f87c9" width="600px">
+**ProfileController**
+
+```php
+
+class ProfileController extends Controller
+{
+    /**
+     * Display the user's profile form.
+     */
+    public function edit(Request $request): View
+    {
+        return view('profile.edit', [
+            'user' => $request->user(),
+        ]);
+    }
+
+    /**
+     * Update the user's profile information.
+     */
+    public function update(ProfileUpdateRequest $request): RedirectResponse
+    {
+        $request->user()->fill($request->validated());
+
+        if ($request->user()->isDirty('email')) {
+            $request->user()->email_verified_at = null;
+        }
+
+        $request->user()->save();
+
+        return Redirect::route('profile.edit')->with('status', 'profile-updated');
+    }
+
+    /**
+     * Delete the user's account.
+     */
+    public function destroy(Request $request): RedirectResponse
+    {
+        $request->validateWithBag('userDeletion', [
+            'password' => ['required', 'current_password'],
+        ]);
+
+        $user = $request->user();
+
+        Auth::logout();
+
+        $user->delete();
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return Redirect::to('/');
+    }
+}
+
+```
+
+**CarController**
+
+```php
+
+class CarController extends Controller
+{
+    public function index(Request $request)
+    {
+        //Tìm kiếm xe
+        $search = $request -> input('search');
+        $query = Car::query();
+
+        if($search) {
+            $query -> where('name', 'like', "%{$search}%")
+                    -> orWhere('brand', 'like', "%{$search}%");
+        }
+
+        //Phân trang (5/1t)
+        $cars = $query -> orderBy('id', 'desc') -> paginate(5);
+        $cars -> appends(['search' => $search]);
+
+        return view('cars.index', compact('cars', 'search'));
+    }
+
+    public function create() {
+        return view('cars.create');
+    }
+    public function store(Request $request)
+    {
+        $validated = $request->validate([
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'name' => 'required|string|max:255',
+            'brand' => 'required|string|max:255',
+            'year' => 'required|digits:4|integer|min:1900|max:' . date('Y'),
+            'price' => 'required|numeric|min:0',
+            'note' => 'nullable|string',
+        ]);
+
+        // Xử lý upload ảnh nếu có
+        if ($request->hasFile('image')) {
+            $path = $request->file('image')->store('cars', 'public');
+            $validated['image'] = $path;
+        }
+
+        Car::create($validated);
+
+        return redirect()->route('cars.index')->with('success', 'Đã thêm thành công một mẫu xe mới!');
+    }
+
+    public function show($id)
+    {
+        $car = Car::findOrFail($id);
+        return view('cars.show', compact('car'));
+    }
+
+    public function edit($id)
+    {
+        $car = Car::findOrFail($id);
+        return view('cars.edit', compact('car'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $car = Car::findOrFail($id);
+
+        $validated = $request->validate([
+            'image' => 'nullable|image',
+            'name' => 'required|string|max:255',
+            'brand' => 'required|string|max:255',
+            'year' => 'required|digits:4|integer|min:1900|max:' . date('Y'),
+            'price' => 'required|numeric|min:0',
+            'note' => 'nullable|string',
+        ]);
+
+        // Nếu có upload ảnh mới, xóa ảnh cũ rồi lưu ảnh mới
+        if ($request->hasFile('image')) {
+            if ($car->image && Storage::disk('public')->exists($car->image)) {
+                Storage::disk('public')->delete($car->image);
+            }
+            $path = $request->file('image')->store('cars', 'public');
+            $validated['image'] = $path;
+        }
+
+        $car->update($validated);
+
+        return redirect()->route('cars.index')->with('success', 'Cập nhật lại thông tin xe thành công!');
+    }
+
+    public function destroy($id)
+    {
+        $car = Car::findOrFail($id);
+
+        // Xóa ảnh khi xoá xe
+        if ($car->image && Storage::disk('public')->exists($car->image)) {
+            Storage::disk('public')->delete($car->image);
+        }
+
+        $car->delete();
+
+        return redirect()->route('cars.index')->with('success', 'Mẫu xe đã được xóa thành công');
+    }
+}
+
+```
+
+**CartController**
+
+```php
+class CartController extends Controller
+{
+    // Thêm xe vào giỏ hàng
+    public function addToCart($carId)
+    {
+        $user = Auth::user();
+
+        $existingItem = $user->cart()
+            ->where('car_id', $carId)
+            ->where('status', 'active')
+            ->first();
+
+        if ($existingItem) {
+            $existingItem->increment('quantity');
+        } else {
+            $user->cart()->create([
+                'car_id' => $carId,
+                'quantity' => 1,
+                'status' => 'active',
+            ]);
+        }
+
+        return redirect()->back()->with('success', 'Đã thêm xe vào giỏ hàng!');
+    }
+
+    // Hiển thị giỏ hàng
+    public function index()
+    {
+        $user = Auth::user();
+        $cartItems = $user->cart()
+            ->where('status', 'active')
+            ->with('car')
+            ->get();
+
+        return view('cart.index', compact('cartItems'));
+    }
+
+    // Cập nhật số lượng
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'quantity' => 'required|integer|min:1',
+        ]);
+
+        $cartItem = Cart::findOrFail($id);
+
+        if ($cartItem->user_id !== Auth::id() || $cartItem->status !== 'active') {
+            abort(403);
+        }
+
+        $cartItem->quantity = $request->quantity;
+        $cartItem->save();
+
+        return redirect()->route('cart.index')->with('success', 'Cập nhật số lượng thành công!');
+    }
+
+    // Xóa khỏi giỏ hàng
+    public function removeFromCart($id)
+    {
+        $cartItem = Cart::findOrFail($id);
+
+        if ($cartItem->user_id !== Auth::id() || $cartItem->status !== 'active') {
+            abort(403);
+        }
+
+        $cartItem->delete();
+
+        return redirect()->back()->with('success', 'Đã xóa khỏi giỏ hàng!');
+    }
+
+    // Hiển thị form thanh toán
+    public function showCheckoutForm()
+    {
+        $user = Auth::user();
+        $cartItems = $user->cart()
+            ->where('status', 'active')
+            ->with('car')
+            ->get();
+
+        if ($cartItems->isEmpty()) {
+            return redirect()->route('cart.index')->with('error', 'Giỏ hàng của bạn đang trống.');
+        }
+
+        $total = $cartItems->sum(fn($item) => $item->quantity * $item->car->price);
+
+        return view('cart.checkout', compact('cartItems', 'total'));
+    }
+
+    // Xử lý gửi yêu cầu tư vấn (checkout)
+    public function checkout(Request $request)
+    {
+        $user = Auth::user();
+        $cartItems = $user->cart()
+            ->where('status', 'active')
+            ->with('car')
+            ->get();
+
+        if ($cartItems->isEmpty()) {
+            return redirect()->route('cart.index')->with('error', 'Giỏ hàng của bạn đang trống.');
+        }
+
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email',
+            'phone' => 'nullable|string|max:20',
+            'address' => 'nullable|string|max:255',
+            'message' => 'nullable|string|max:1000',
+        ]);
+
+        $data = [
+            'user' => $user,
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'address' => $request->address,
+            'message' => $request->message,
+            'cartItems' => $cartItems,
+            'total' => $cartItems->sum(fn($item) => $item->quantity * $item->car->price),
+        ];
+
+        Mail::to('daylaaccclone39@gmail.com')->send(new CheckoutMail($data));
+
+        $user->cart()->delete();
+        
+        // Cập nhật trạng thái các item thành 'checked_out'
+        // foreach ($cartItems as $item) {
+        //     $item->status = 'checked_out';
+        //     $item->save();
+        // }
+
+        return redirect()->route('cart.index')->with('success', 'Yêu cầu tư vấn của bạn đã được gửi. Chúng tôi sẽ liên hệ bạn sớm nhất!');
+    }
+}
+```
+
+**ContactController**
+
+```php
+
+class ContactController extends Controller
+{
+    public function index()
+    {
+        return view('contact.index');
+    }
+
+    public function send(Request $request)
+    {
+        $request->validate([
+            'name'    => 'required|string|max:255',
+            'email'   => 'required|email',
+            'subject' => 'required|string|max:255',
+            'message' => 'required|string',
+        ]);
+
+        $contactData = $request->only(['name', 'email', 'subject', 'message']);
+
+        Mail::to('daylaaccclone39@gmail.com')->send(new ContactMail($contactData));
+
+        return redirect()->back()->with('success', 'Cảm ơn bạn đã liên hệ với chúng tôi, chúng tôi sẽ phản hồi lại bạn sớm!');
+    }
+}
+
+```
+
+**ScheduleController**
+
+```php
+
+class ScheduleController extends Controller
+{
+    // Hiển thị form đặt lịch
+    public function showForm()
+    {
+        return view('schedule.form');
+    }
+
+    // Xử lý lưu thông tin đặt lịch
+    public function store(Request $request)
+    {
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'phone' => 'required|string|max:20',
+            'email' => 'nullable|email',
+            'service' => 'required|string',
+            'date' => 'required|date|after_or_equal:today',
+            'note' => 'nullable|string',
+        ]);
+
+        // Gửi mail cho admin
+        Mail::to('daylaaccclone39@gmail.com')->send(new ScheduleNotification($validated));
+
+        // Schedule::create($validated);
+
+        return redirect()->route('schedule.form')->with('success', 'Đặt lịch thành công! Chúng tôi sẽ phản hồi bạn sớm.');
+    }
+}
+
+```
 
 ---
 
 ### 📄 Blade Template (View)
 - **Home View**  
-    <img src="https://github.com/user-attachments/assets/3268ea3d-5827-4bb9-8980-79310df1b1dc" width="600px">
+    <img src="https://github.com/user-attachments/assets/3268ea3d-5827-4bb9-8980-79310df1b1dc" width="700px">
 - **Car View**  
-    <img src="https://github.com/user-attachments/assets/9a468fc5-f913-483d-8851-6f4db0abaf71" width="600px">
+    <img src="https://github.com/user-attachments/assets/9a468fc5-f913-483d-8851-6f4db0abaf71" width="700px">
 - **Cart View**  
-    <img src="https://github.com/user-attachments/assets/57e81e5d-bd24-401b-97db-d82f205a9b75" width="600px">
+    <img src="https://github.com/user-attachments/assets/57e81e5d-bd24-401b-97db-d82f205a9b75" width="700px">
 - **Contact View**  
-    <img src="https://github.com/user-attachments/assets/1aaca38b-cf96-48a5-817c-94e4e42d1f00" width="600px">
+    <img src="https://github.com/user-attachments/assets/1aaca38b-cf96-48a5-817c-94e4e42d1f00" width="700px">
 - **Schedule View**  
-    <img src="https://github.com/user-attachments/assets/59a6de95-003d-497b-8e67-af497a500cd0" width="600px">
+    <img src="https://github.com/user-attachments/assets/59a6de95-003d-497b-8e67-af497a500cd0" width="700px">
 
 ---
 
 ### 🌐 Routes
-<img src="https://github.com/user-attachments/assets/769f7edc-006b-4e7c-a57f-5982aae4c548" width="600px">
+```php
+
+// Trang welcome (mặc định)
+Route::get('/', fn () => view('welcome'))->name('welcome');
+
+// Dashboard redirect (cần đăng nhập + xác thực email)
+Route::get('/dashboard', fn () => redirect()->route('home.homepage'))
+    ->middleware(['auth', 'verified'])
+    ->name('dashboard');
+
+// Trang chính (Home)
+Route::get('/home', fn () => view('home.homepage'))->name('home.homepage');
+
+// Trang liên hệ (Contact)
+Route::get('/contact', fn () => view('contact.index'))->name('contact');
+Route::post('/contact/send', [ContactController::class, 'send'])->name('contact.send');
+
+// =======================
+// Quản lý Giỏ hàng (Cart)
+// =======================
+Route::middleware('auth')->group(function () {
+    Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+    Route::post('/cart/add/{carId}', [CartController::class, 'addToCart'])->name('cart.add');
+    Route::patch('/cart/{id}', [CartController::class, 'update'])->name('cart.update');
+    Route::delete('/cart/remove/{cartId}', [CartController::class, 'removeFromCart'])->name('cart.remove');
+
+    // Hiển thị form checkout (gửi yêu cầu tư vấn)
+
+    Route::get('/cart/checkout', [CartController::class, 'showCheckoutForm'])->name('cart.checkout.form');
+
+    // Xử lý submit form checkout gửi mail
+    Route::post('/cart/checkout', [CartController::class, 'checkout'])->name('cart.checkout.submit');
+});
+
+// =======================
+// Quản lý Xe (Cars)
+// =======================
+
+// Các route cần phân quyền Admin
+Route::middleware(['auth', IsAdmin::class])->group(function () {
+    Route::get('/cars/create', [CarController::class, 'create'])->name('cars.create');
+    Route::post('/cars', [CarController::class, 'store'])->name('cars.store');
+    Route::get('/cars/{car}/edit', [CarController::class, 'edit'])->name('cars.edit');
+    Route::put('/cars/{car}', [CarController::class, 'update'])->name('cars.update');
+    Route::delete('/cars/{car}', [CarController::class, 'destroy'])->name('cars.destroy');
+});
+
+// Các route ai cũng xem được (Danh sách + Chi tiết)
+Route::resource('cars', CarController::class)->only(['index', 'show']);
+
+// Đặt lịch
+Route::get('/schedule', [ScheduleController::class, 'showForm'])->name('schedule.form');
+Route::post('/schedule', [ScheduleController::class, 'store'])->name('schedule.store');
+
+// =======================
+// Quản lý Profile Người dùng
+// =======================
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+// =======================
+// Auth routes (Laravel Breeze / Fortify / Jetstream)
+// =======================
+require __DIR__.'/auth.php';
+
+```
 
 ---
 
 ## 🔒 Bảo Mật
 - **CSRF & XSS Token bảo vệ form** (ví dụ: `car.index`)  
-    <img src="https://github.com/user-attachments/assets/aa50bea3-bb00-49fd-af8a-8b0cf75a026c" width="600px">
+    <img src="https://github.com/user-attachments/assets/aa50bea3-bb00-49fd-af8a-8b0cf75a026c" width="800px">
 - **Query Builder chống SQL Injection** (ví dụ: `CartController`)  
-    <img src="https://github.com/user-attachments/assets/019d6eb2-736b-4365-870a-6fe22cd27659" width="600px">
+    <img src="https://github.com/user-attachments/assets/019d6eb2-736b-4365-870a-6fe22cd27659" width="800px">
 - **Middleware phân quyền Admin**  
-    <img src="https://github.com/user-attachments/assets/3dc1325b-b453-4356-9985-6f765f93c826" width="600px">  
-    <img src="https://github.com/user-attachments/assets/29dce701-a08a-451a-9c24-29997051d361" width="600px">
+    <img src="https://github.com/user-attachments/assets/3dc1325b-b453-4356-9985-6f765f93c826" width="800px">  
+    <img src="https://github.com/user-attachments/assets/29dce701-a08a-451a-9c24-29997051d361" width="800px">
 
 ---
 
@@ -116,49 +639,49 @@ Dự án xây dựng một website chuyên về **tư vấn và mua bán ô tô*
 
 ### 🔐 Trang Xác Thực
 - **Đăng nhập**  
-    <img src="https://github.com/user-attachments/assets/f480b218-c588-4e6e-9710-9d5bccd4c2ce" width="600px">
+    <img src="https://github.com/user-attachments/assets/f480b218-c588-4e6e-9710-9d5bccd4c2ce" width="700px">
 - **Đăng ký**  
-    <img src="https://github.com/user-attachments/assets/9ab20a38-fef6-48f3-b783-96217ef28da4" width="600px">
+    <img src="https://github.com/user-attachments/assets/9ab20a38-fef6-48f3-b783-96217ef28da4" width="700px">
 - **Quên mật khẩu**  
-    <img src="https://github.com/user-attachments/assets/8938c6ed-3eb2-4861-9e27-6cd3cfaa28da" width="600px">
+    <img src="https://github.com/user-attachments/assets/8938c6ed-3eb2-4861-9e27-6cd3cfaa28da" width="700px">
 
 ### 🏠 Trang Chủ  
-<img src="https://github.com/user-attachments/assets/5d1af8c4-aee5-4c6c-922c-41e6535d04e0" width="600px">  
-<img src="https://github.com/user-attachments/assets/d4dc6a12-af96-4f04-9a24-97370a6df363" width="600px">
+<img src="https://github.com/user-attachments/assets/5d1af8c4-aee5-4c6c-922c-41e6535d04e0" width="700px">  
+<img src="https://github.com/user-attachments/assets/d4dc6a12-af96-4f04-9a24-97370a6df363" width="700px">
 
 ---
 
 ### 🚘 Trang Sản Phẩm
 - **Danh sách xe**  
-    <img src="https://github.com/user-attachments/assets/fb9b0b13-9311-4411-9e2c-c85c321bacd1" width="600px">
+    <img src="https://github.com/user-attachments/assets/fb9b0b13-9311-4411-9e2c-c85c321bacd1" width="700px">
 - **Chi tiết xe**  
-    <img src="https://github.com/user-attachments/assets/e33a7006-d4b0-491b-813d-634fc00c0c90" width="600px">
+    <img src="https://github.com/user-attachments/assets/e33a7006-d4b0-491b-813d-634fc00c0c90" width="700px">
 - **Thêm xe (Admin)**  
-    <img src="https://github.com/user-attachments/assets/ec95a06f-aaf0-427a-af2e-1c85eb2aab82" width="600px">
+    <img src="https://github.com/user-attachments/assets/ec95a06f-aaf0-427a-af2e-1c85eb2aab82" width="700px">
 - **Sửa / Xoá (Admin)**  
-    <img src="https://github.com/user-attachments/assets/6faf5303-c149-484a-accb-f787257b8cb2" width="600px">
+    <img src="https://github.com/user-attachments/assets/6faf5303-c149-484a-accb-f787257b8cb2" width="700px">
 
 ---
 
 ### 🛠️ Tư Vấn - Dịch Vụ
 - **Giỏ hàng**  
-    <img src="https://github.com/user-attachments/assets/515667a0-065a-4b92-95bc-251165659512" width="600px">
+    <img src="https://github.com/user-attachments/assets/515667a0-065a-4b92-95bc-251165659512" width="700px">
 - **Gửi tư vấn**  
-    <img src="https://github.com/user-attachments/assets/f22e1416-c813-457d-bb7a-09d2a1ddcc17" width="600px">
+    <img src="https://github.com/user-attachments/assets/f22e1416-c813-457d-bb7a-09d2a1ddcc17" width="700px">
 - **Đặt lịch dịch vụ**  
-    <img src="https://github.com/user-attachments/assets/499b1b27-8c0e-4f2a-a001-78f95b684023" width="600px">
+    <img src="https://github.com/user-attachments/assets/499b1b27-8c0e-4f2a-a001-78f95b684023" width="700px">
 - **Liên hệ**  
-    <img src="https://github.com/user-attachments/assets/6ad952d6-04eb-4a38-9d13-7d1a4aef22cb" width="600px">
+    <img src="https://github.com/user-attachments/assets/6ad952d6-04eb-4a38-9d13-7d1a4aef22cb" width="700px">
 
 ---
 
 ### ✉️ Gửi Gmail Tự Động
 - **Đặt lịch:**  
-    <img src="https://github.com/user-attachments/assets/83fe3df9-2ce2-4ccc-b908-01877de1b19c" width="600px">
+    <img src="https://github.com/user-attachments/assets/83fe3df9-2ce2-4ccc-b908-01877de1b19c" width="700px">
 - **Tư vấn:**  
-    <img src="https://github.com/user-attachments/assets/6bc556b5-6dd3-4806-bc48-0c6d1e48822e" width="600px">
+    <img src="https://github.com/user-attachments/assets/6bc556b5-6dd3-4806-bc48-0c6d1e48822e" width="700px">
 - **Liên hệ:**  
-    <img src="https://github.com/user-attachments/assets/fe6cf771-f46a-4d64-8e2a-01f7084e399e" width="600px">
+    <img src="https://github.com/user-attachments/assets/fe6cf771-f46a-4d64-8e2a-01f7084e399e" width="700px">
 
 ---
 
