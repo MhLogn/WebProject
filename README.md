@@ -539,8 +539,9 @@ class ScheduleController extends Controller
 ---
 
 ### 📄 Blade Template (View)
-- **Cấu trúc**  
-    <img src="https://github.com/userattachments/assets/17a38b65-8f4d-4338-aa75-6c6dfa986f02" width="800px">
+
+![view](https://github.com/user-attachments/assets/05519eca-8279-4be5-8767-265885d7beb9)
+
 ---
 
 ### 🌐 Routes
