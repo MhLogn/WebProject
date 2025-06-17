@@ -539,17 +539,8 @@ class ScheduleController extends Controller
 ---
 
 ### 📄 Blade Template (View)
-- **Home View**  
-    <img src="https://github.com/user-attachments/assets/3268ea3d-5827-4bb9-8980-79310df1b1dc" width="800px">
-- **Car View**  
-    <img src="https://github.com/user-attachments/assets/9a468fc5-f913-483d-8851-6f4db0abaf71" width="800px">
-- **Cart View**  
-    <img src="https://github.com/user-attachments/assets/57e81e5d-bd24-401b-97db-d82f205a9b75" width="800px">
-- **Contact View**  
-    <img src="https://github.com/user-attachments/assets/1aaca38b-cf96-48a5-817c-94e4e42d1f00" width="800px">
-- **Schedule View**  
-    <img src="https://github.com/user-attachments/assets/59a6de95-003d-497b-8e67-af497a500cd0" width="800px">
-
+- **Cấu trúc**  
+    <img src="https://github.com/userattachments/assets/17a38b65-8f4d-4338-aa75-6c6dfa986f02" width="800px">
 ---
 
 ### 🌐 Routes
