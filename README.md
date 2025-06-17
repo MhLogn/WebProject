@@ -618,7 +618,7 @@ require __DIR__.'/auth.php';
 ---
 
 ## 🔒 Bảo Mật
-- **CSRF & XSS Token bảo vệ form** (ví dụ: `car.index`)
+**CSRF & XSS Token bảo vệ form** (ví dụ: `car.index`)
 ```php
 
     @if(Auth::user() && Auth::user()->is_admin)
@@ -640,7 +640,7 @@ require __DIR__.'/auth.php';
 
 ```
 
-- **Query Builder chống SQL Injection** (ví dụ: `CartController`)  
+**Query Builder chống SQL Injection** (ví dụ: `CartController`)  
 ```php
 
     public function addToCart($carId)
@@ -667,7 +667,7 @@ require __DIR__.'/auth.php';
 
 ```
 
-- **Middleware phân quyền Admin**  
+**Middleware phân quyền Admin**  
 ```php
 
 class IsAdmin
