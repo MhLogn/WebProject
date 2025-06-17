@@ -686,6 +686,9 @@ class IsAdmin
     }
 }
 
+```
+
+```php
 // Các route cần phân quyền Admin
 Route::middleware(['auth', IsAdmin::class])->group(function () {
     Route::get('/cars/create', [CarController::class, 'create'])->name('cars.create');
