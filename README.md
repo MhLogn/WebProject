@@ -25,11 +25,11 @@ Dự án xây dựng một website chuyên về **tư vấn và mua bán ô tô*
 ---
 
 ## 💻 Công Nghệ Sử Dụng
-1. **PHP** (Laravel Framework)  
-2. **Laravel Breeze** (Xác thực người dùng)  
-3. **MySQL** (Aiven Cloud)  
-4. **Blade Template** (Giao diện)  
-5. **Tailwind CSS** (Thiết kế responsive)  
+- **PHP** (Laravel Framework)  
+- **Laravel Breeze** (Xác thực người dùng)  
+- **MySQL** (Aiven Cloud)  
+- **Blade Template** (Giao diện)  
+- **Tailwind CSS** (Thiết kế responsive)  
 
 ---
 
