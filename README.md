@@ -626,12 +626,88 @@ require __DIR__.'/auth.php';
 
 ## 🔒 Bảo Mật
 - **CSRF & XSS Token bảo vệ form** (ví dụ: `car.index`)  
-    <img src="https://github.com/user-attachments/assets/aa50bea3-bb00-49fd-af8a-8b0cf75a026c" width="800px">
+```php
+
+    @if(Auth::user() && Auth::user()->is_admin)
+        <a href="{{ route('cars.edit', $car->id) }}" class="btn-edit">Sửa</a>
+        <form action="{{ route('cars.destroy', $car->id) }}" method="POST"
+            class="inline-block"
+            onsubmit="return confirm('Bạn có chắc muốn xóa xe này?');">
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="btn-delete">Xóa</button>
+        </form>
+    @endif
+
+    <form action="{{ route('cart.add', $car->id) }}" method="POST"
+        class="inline-block">
+        @csrf
+        <button type="submit" class="btn-cart">Mua Bán</button>
+    </form>
+
+```
 - **Query Builder chống SQL Injection** (ví dụ: `CartController`)  
-    <img src="https://github.com/user-attachments/assets/019d6eb2-736b-4365-870a-6fe22cd27659" width="800px">
+```php
+
+    public function addToCart($carId)
+    {
+        $user = Auth::user();
+
+        $existingItem = $user->cart()
+            ->where('car_id', $carId)
+            ->where('status', 'active')
+            ->first();
+
+        if ($existingItem) {
+            $existingItem->increment('quantity');
+        } else {
+            $user->cart()->create([
+                'car_id' => $carId,
+                'quantity' => 1,
+                'status' => 'active',
+            ]);
+        }
+
+        return redirect()->back()->with('success', 'Đã thêm xe vào giỏ hàng!');
+    }
+
+```
 - **Middleware phân quyền Admin**  
-    <img src="https://github.com/user-attachments/assets/3dc1325b-b453-4356-9985-6f765f93c826" width="800px">  
-    <img src="https://github.com/user-attachments/assets/29dce701-a08a-451a-9c24-29997051d361" width="800px">
+```php
+
+class IsAdmin
+{
+    /**
+     * Handle an incoming request.
+     *
+     * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
+     */
+    public function handle(Request $request, Closure $next)
+    {
+        if (!auth()->check() || !auth()->user()->is_admin) {
+            abort(403, 'Bạn không có quyền truy cập,');
+        }
+        return $next($request);
+    }
+}
+
+```
+
+```php
+
+// Các route cần phân quyền Admin
+Route::middleware(['auth', IsAdmin::class])->group(function () {
+    Route::get('/cars/create', [CarController::class, 'create'])->name('cars.create');
+    Route::post('/cars', [CarController::class, 'store'])->name('cars.store');
+    Route::get('/cars/{car}/edit', [CarController::class, 'edit'])->name('cars.edit');
+    Route::put('/cars/{car}', [CarController::class, 'update'])->name('cars.update');
+    Route::delete('/cars/{car}', [CarController::class, 'destroy'])->name('cars.destroy');
+});
+
+// Các route ai cũng xem được (Danh sách + Chi tiết)
+Route::resource('cars', CarController::class)->only(['index', 'show']);
+
+```
 
 ---
 
