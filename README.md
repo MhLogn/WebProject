@@ -17,7 +17,7 @@ Dự án xây dựng một website chuyên về **tư vấn và mua bán ô tô*
 
 ### ✨ Tính năng hỗ trợ:
 - Tìm kiếm xe theo nhu cầu  
-- Thêm vào giỏ hàng  
+- Mua bán, trao đổi 
 - Gửi yêu cầu tư vấn  
 - Đặt lịch dịch vụ  
 - Liên hệ với người bán  
