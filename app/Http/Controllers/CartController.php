@@ -30,7 +30,7 @@ class CartController extends Controller
             ]);
         }
 
-        return redirect()->back()->with('success', 'Đã thêm xe vào giỏ hàng!');
+        return redirect()->back()->with('success', 'Đã thêm mẫu xe cần tư vấn!');
     }
 
     // Hiển thị giỏ hàng

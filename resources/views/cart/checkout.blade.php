@@ -93,7 +93,7 @@
         }
 
         .car-item img {
-            width: 220px;
+            width: 350px;
             height: px;
             object-fit: cover;
             border-radius: 0.5rem;
@@ -209,14 +209,14 @@
                         <div>
                             <div class="font-bold">{{ $item->car->name }} ({{ $item->car->brand }})</div>
                             <div>Số lượng: {{ $item->quantity }}</div>
-                            <div>Giá: {{ number_format($item->car->price, 0, ',', '.') }} đ</div>
+                            <div>Giá: {{ number_format($item->car->price, 0, ',', '.') }} USĐ</div>
                         </div>
                     </div>
                 @endforeach
             </div>
 
             <div class="total-price fade-in">
-                Tổng tiền: {{ number_format($total, 0, ',', '.') }} đ
+                Tổng tiền: {{ number_format($total, 0, ',', '.') }} USĐ
             </div>
 
             <button type="submit" class="submit-btn fade-in">Gửi yêu cầu tư vấn</button>
