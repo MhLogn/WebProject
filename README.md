@@ -758,7 +758,7 @@ Route::resource('cars', CarController::class)->only(['index', 'show']);
 ## 🔗 Liên Kết
 - 🔗 **GitHub:** [https://github.com/MhLogn](https://github.com/MhLogn)  
 - ▶️ **YouTube Demo:** [https://www.youtube.com/@longhamanh5118](https://www.youtube.com/@longhamanh5118)  
-- 🌐 **Public Website:** *(đang cập nhật)*
+- 🌐 **Public Website: webproject-main-zdohmm.laravel.cloud
 
 ---
 
