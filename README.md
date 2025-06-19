@@ -17,7 +17,7 @@ Dự án xây dựng một website chuyên về **tư vấn và mua bán ô tô*
 
 ### ✨ Tính năng hỗ trợ:
 - Tìm kiếm xe theo nhu cầu  
-- Thêm vào giỏ hàng  
+- Mua bán, trao đổi 
 - Gửi yêu cầu tư vấn  
 - Đặt lịch dịch vụ  
 - Liên hệ với người bán  
@@ -43,17 +43,17 @@ Dự án xây dựng một website chuyên về **tư vấn và mua bán ô tô*
 
 ### 📌 Sơ Đồ Thuật Toán
 - **CRUD Car**  
-    <img src="https://github.com/user-attachments/assets/4543f453-1423-4fa5-9354-36ddb5a72dd8" width="700px">
+    <img src="https://github.com/user-attachments/assets/4543f453-1423-4fa5-9354-36ddb5a72dd8" width="600px">
 - **CRUD Cart**  
-    <img src="https://github.com/user-attachments/assets/40ffa733-1212-48ec-b75a-dc0d594d563e" width="700px">
+    <img src="https://github.com/user-attachments/assets/40ffa733-1212-48ec-b75a-dc0d594d563e" width="600px">
 - **IsAdmin**  
-    <img src="https://github.com/user-attachments/assets/4236bd4a-a5b8-4be9-935f-28e965591e55" width="700px">
+    <img src="https://github.com/user-attachments/assets/4236bd4a-a5b8-4be9-935f-28e965591e55" width="600px">
 - **User ➝ SelectCar ➝ addToCart**  
-    <img src="https://github.com/user-attachments/assets/173472f7-ff66-4c3f-9bcc-2ab9c235fed1" width="700px">
+    <img src="https://github.com/user-attachments/assets/173472f7-ff66-4c3f-9bcc-2ab9c235fed1" width="600px">
 - **Contact**  
-    <img src="https://github.com/user-attachments/assets/2abdafe4-4d44-4977-a308-2e4e80a21a40" width="700px">
+    <img src="https://github.com/user-attachments/assets/2abdafe4-4d44-4977-a308-2e4e80a21a40" width="600px">
 - **Schedule**  
-    <img src="https://github.com/user-attachments/assets/96421d79-b637-4267-ad5a-5a8f1a964ce5" width="700px">
+    <img src="https://github.com/user-attachments/assets/96421d79-b637-4267-ad5a-5a8f1a964ce5" width="600px">
 
 ---
 
@@ -756,9 +756,11 @@ Route::resource('cars', CarController::class)->only(['index', 'show']);
 ---
 
 ## 🔗 Liên Kết
-- 🔗 **GitHub:** [https://github.com/MhLogn](https://github.com/MhLogn)  
+- 🔗 **GitHub:** [https://github.com/MhLogn](https://github.com/MhLogn)
+- 🔗 **GitHub-Repo:**[https://github.com/MhLogn/WebProject](https://github.com/MhLogn/WebProject)
+- 🔗 **GitHub-Page:** [https://mhlogn.github.io/WebProject/](https://mhlogn.github.io/WebProject/)
 - ▶️ **YouTube Demo:** [https://www.youtube.com/@longhamanh5118](https://www.youtube.com/@longhamanh5118)  
-- 🌐 **Public Website: webproject-main-zdohmm.laravel.cloud
+- 🌐 **Public Website**: [https://webproject-main-zdohmm.laravel.cloud](https://webproject-main-zdohmm.laravel.cloud)
 
 ---
 
