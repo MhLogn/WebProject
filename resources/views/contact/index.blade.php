@@ -171,7 +171,7 @@
 
                 {{-- Left Column --}}
                 <div class="left-column">
-                    <img src="{{ asset('storage/avt-img.png') }}" alt="Avatar" class="contact-avatar">
+                    <img src="{{ asset('storage/logo/avt-img.png') }}" alt="Avatar" class="contact-avatar">
                     <h2 class="contact-name">Hà Mạnh Long</h2>
                     <p class="contact-info-text">Bạn có thể liên hệ với tôi qua địa chỉ:</p>
                     <div class="contact-links">
